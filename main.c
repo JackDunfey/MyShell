@@ -11,6 +11,18 @@ bool loop = true;
 
 // TODO: read from config file ._rc
 
+int execute_command(char *command){
+    // Parse
+    int token_count;
+    char **argv = split_on_substring(command, " ", &token_count);
+
+    for (int i = 0; i < token_count; i++) {
+        printf("%d: %s\n", i+1, argv[i]);
+    }
+
+    return 0;
+}
+
 // Start the shell
 int main(int argc, char **argv){
     int opt;
@@ -34,6 +46,7 @@ int main(int argc, char **argv){
     }
 
     if (command) {
+        execute_command(command)
         return 0;
     }
 
