@@ -11,7 +11,7 @@ bool loop = true;
 
 // TODO: read from config file ._rc
 
-int execute_command(int argc, char **command){
+int execute_command(int argc, char **argv){
     for (int i = 0; i < argc; i++) {
         printf("%d: %s\n", i+1, argv[i]);
     }
@@ -42,7 +42,7 @@ int main(int argc, char **argv){
         switch (opt) {
             case 'c':
                 printf("c flag found: %s, %d\n", optarg, optind);
-                int number_of_args = argc-optind+1
+                int number_of_args = argc-optind+1;
                 *command = optarg;
                 for(int i = optind, j = 1; i < argc; i++, j++){
                     command[j] = arg[i];
