@@ -3,6 +3,8 @@
 #include <stdbool.h>
 #include <unistd.h>
 
+#define PROMPT "user@machine:pwd$ "
+
 bool loop = true;
 
 // TODO: read from config file ._rc
@@ -28,6 +30,9 @@ int main(int argc, char **argv){
                 break;
         }
     }
+
+    // Temporary
+    char *prompt = PROMPT;
 
     while (loop) {
         if (do_prompt)
