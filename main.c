@@ -33,7 +33,7 @@ int main(int argc, char **argv){
     while ((opt = getopt(argc, argv, "i:p:c")) != -1) {
         switch (opt) {
             case 'c':
-                printf("c flag found\n");
+                printf("c flag found: %s\n", optarg);
                 command = optarg;
                 break;
             case 'i':
