@@ -60,6 +60,7 @@ int main(int argc, char **argv){
                 fprintf(stderr, "Not yet implemented\n");
                 break;
             case '?':
+                printf("Invalid: %c\n", optopt);
                 break;
             default:
                 break;
