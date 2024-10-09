@@ -38,6 +38,7 @@ int main(int argc, char **argv){
     int number_of_args;
     char **command = NULL;
     bool do_prompt = false;
+    opterr = 0;
     while ((opt = getopt(argc, argv, "ipc:")) != -1) {
         switch (opt) {
             case 'c':
