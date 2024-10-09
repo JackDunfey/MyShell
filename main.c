@@ -45,7 +45,7 @@ int main(int argc, char **argv){
         switch (opt) {
             case 'c':
                 printf("c flag found: %s, %d\n", optarg, optind);
-                int number_of_args = argc-optind+1;
+                number_of_args = argc-optind+1;
                 printf("Number of args: %d\n", number_of_args);
                 command = calloc(number_of_args + 1, sizeof(char *));
                 *command = optarg;
