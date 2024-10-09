@@ -47,7 +47,7 @@ int main(int argc, char **argv){
                 command = calloc(number_of_args, sizeof(char *));
                 *command = optarg;
                 for(int i = optind, j = 1; i < argc; i++, j++){
-                    printf("%d, %d, %s", i, j, argv[i]);
+                    printf("%d, %d, %s\n", i, j, argv[i]);
                     command[j] = argv[i];
                 }
                 break;
