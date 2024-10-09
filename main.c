@@ -30,7 +30,7 @@ int main(int argc, char **argv){
     int opt;
     char *command = NULL;
     bool do_prompt = false;
-    while ((opt = getopt(argc, argv, "i:p:c")) != -1) {
+    while ((opt = getopt(argc, argv, "i:p:c:")) != -1) {
         switch (opt) {
             case 'c':
                 printf("c flag found: %s\n", optarg);
