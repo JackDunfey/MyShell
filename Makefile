@@ -16,4 +16,4 @@ utils.o: utils.c utils.h
 
 
 clean:
-	rm -f $(TARGET) $(OJBS)
+	rm -f $(TARGET) $(OBJS)
