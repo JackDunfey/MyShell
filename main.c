@@ -57,6 +57,9 @@ int execute_command(int argc, char **argv){
     int output_len = strlen(buffer);
     char *output = calloc(1, output_len+1);
     strncpy(output, buffer, output_len);
+
+    printf("%s\n", output);
+
     return EXIT_SUCCESS;
 }
 
