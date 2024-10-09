@@ -46,7 +46,7 @@ int main(int argc, char **argv){
     }
 
     if (command) {
-        execute_command(command)
+        execute_command(command);
         return 0;
     }
 
