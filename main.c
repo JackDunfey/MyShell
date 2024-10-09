@@ -16,6 +16,8 @@ int execute_command(char *command){
     int token_count;
     char **argv = split_on_substring(command, " ", &token_count);
 
+    printf("executing command...\n");
+
     for (int i = 0; i < token_count; i++) {
         printf("%d: %s\n", i+1, argv[i]);
     }
