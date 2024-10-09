@@ -60,8 +60,7 @@ int main(int argc, char **argv){
                 // keep privilege, implement later
                 fprintf(stderr, "Not yet implemented\n");
                 break;
-            case '?':
-                printf("Invalid: %c\n", optopt);
+            case '?': // ignore invalid
                 break;
             default:
                 break;
