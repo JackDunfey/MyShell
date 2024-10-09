@@ -33,13 +33,14 @@ int execute_command(int argc, char **argv){
     if (pipe(pipefd) == -1) { perror("pipe"); exit(EXIT_FAILURE); }
 
     if(pid == 0){
+        printf("Child running...\n");
         // child process (no read, write)
         close(pipefd[0]);
         dup2(pipefd[1], STDOUT_FILENO);
         close(pipefd[1]);
 
         execvp(argv[0], argv);
-        perror("execve failed");
+        perror("execvp failed");
         exit(EXIT_FAILURE);
     }
 
