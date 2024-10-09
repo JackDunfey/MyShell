@@ -11,7 +11,7 @@ bool trim_newline(char *s){
 #include <stdio.h>
 #include <stdlib.h>
 #define MAX_TOKENS 256
-static char **split_on_substring(const char *input, const char *delimiter, int *token_count) {
+char **split_on_substring(const char *input, const char *delimiter, int *token_count) {
     char *input_copy;
     char *next_token;
     char **result;
@@ -74,7 +74,7 @@ static char **split_on_substring(const char *input, const char *delimiter, int *
     return result;  // Return the array of strings
 }
 
-static void free_tokens(char **tokens, int token_count){
+void free_tokens(char **tokens, int token_count){
     for (int i = 0; i < token_count; i++) { free(tokens[i]); } // Free each token
     free(tokens);  // Free the array of tokens
 }
