@@ -6,6 +6,8 @@
 #include "utils.h"
 
 #define PROMPT "user@machine:pwd$ "
+extern char **environ;
+
 
 bool loop = true;
 
@@ -14,20 +16,53 @@ bool loop = true;
 int execute_command(int argc, char **argv){
     printf("executing command with %d args...\n", argc);
 
-    for (int i = 0; i < argc; i++) {
-        printf("%d: %s\n", i+1, argv[i]);
+    // int execvp(const char *file, char *const argv[]);
+
+    pid_t pid = fork();
+    if (pid < 0){
+        frpintf(stderr, "fork failed\n");
+        return 1;
     }
-    return 0;
+
+    int pipefd[2];
+    if (pipe(pipefd) == -1) { perror("pipe"); exit(EXIT_FAILURE); }
+
+    if(pid == 0){
+        // child process (no read, write)
+        close(pipefd[0]);
+        dup2(pipefd[1], STDOUT_FILENO);
+        close(pipefd[1]);
+
+        execvp(argv[0], argv);
+        perror("execve failed");
+        exit(EXIT_FAILURE);
+    }
+
+    // Parent process (no write, read)
+
+    close(pipefd[1]);
+    char buffer[PIPE_SIZE];
+    int bytes_read;
+    while ((bytes_read = read(pipefd[0], buffer, sizeof(buffer) - 1)) > 0) {
+        buffer[bytes_read] = '\0';  // Null-terminate the string
+        // printf("BUFFER:\n%s\n", buffer);  // Print the captured output
+    }
+    wait(NULL);  // Wait for the child to complete
+
+    int output_len = strlen(buffer);
+    char *output = calloc(1, output_len+1);
+    strncpy(output, buffer, output_len);
+    return EXIT_SUCCESS;
 }
 
 int parse_command(char *command){
     // Parse
-    int token_count;
-    char **argv = split_on_substring(command, " ", &token_count);
+    int argc;
+    char **argv = split_on_substring(command, " ", &argc);
 
-    printf("executing command...\n");
-
-    for (int i = 0; i < token_count; i++) {
+    printf("parsing command...\n");
+    
+    for (int i = 0; i < argc; i++) {
         printf("%d: %s\n", i+1, argv[i]);
     }
 
