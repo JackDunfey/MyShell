@@ -45,7 +45,7 @@ int main(int argc, char **argv){
                 int number_of_args = argc-optind+1;
                 *command = optarg;
                 for(int i = optind, j = 1; i < argc; i++, j++){
-                    command[j] = arg[i];
+                    command[j] = argv[i];
                 }
                 break;
             case 'i':
