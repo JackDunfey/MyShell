@@ -1,5 +1,5 @@
 CC = gcc
-CFLAGS = -Wall -g  # Add any flags you need
+CFLAGS = -g  # Add any flags you need
 TARGET = main
 OBJS = main.o utils.o
 
