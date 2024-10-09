@@ -18,7 +18,7 @@ int main(int argc, char **argv){
                 command = optarg;
                 break;
             case 'i':
-                do_prompt = true
+                do_prompt = true;
                 break;
             case 'p':
                 // keep privilege, implement later
@@ -34,8 +34,8 @@ int main(int argc, char **argv){
             printf(prompt);
         
         char command_buffer[256];
-        if(fgets(line, sizeof(line), stdin)) {
-            printf("%s\n", command_buffer)
+        if(fgets(command_buffer, sizeof(command_buffer), stdin)) {
+            printf("%s\n", command_buffer);
         }
     }
 }
