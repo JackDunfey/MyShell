@@ -3,6 +3,8 @@
 #include <stdbool.h>
 #include <unistd.h>
 
+#include "utils.c"
+
 #define PROMPT "user@machine:pwd$ "
 
 bool loop = true;
@@ -40,7 +42,8 @@ int main(int argc, char **argv){
         
         char command_buffer[256];
         if(fgets(command_buffer, sizeof(command_buffer), stdin)) {
-            printf("%s\n", command_buffer);
+            
+            strlen
         }
     }
 }
