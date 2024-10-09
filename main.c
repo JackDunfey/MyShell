@@ -20,6 +20,9 @@ bool loop = true;
 
 int execute_command(int argc, char **argv){
     printf("executing command with %d args...\n", argc);
+    for (int i = 0; i < argc; i++) {
+        printf("%d: %s\n", i+1, argv[i]);
+    }
 
     // int execvp(const char *file, char *const argv[]);
 
