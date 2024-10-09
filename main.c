@@ -12,6 +12,8 @@ bool loop = true;
 // TODO: read from config file ._rc
 
 int execute_command(int argc, char **argv){
+    printf("executing command with %d args...\n", argc);
+
     for (int i = 0; i < argc; i++) {
         printf("%d: %s\n", i+1, argv[i]);
     }
@@ -51,7 +53,7 @@ int main(int argc, char **argv){
                     printf("DDS: %d, %d, %s\n", i, j, argv[i]);
                     command[j] = argv[i];
                 }
-                command[number_of_args] = NULL;
+                command[number_of_args++] = NULL;
                 break;
             case 'i':
                 do_prompt = true;
