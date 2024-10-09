@@ -9,6 +9,7 @@ bool trim_newline(char *s){
 }
 
 #include <stdio.h>
+#include <stdlib.h>
 #define MAX_TOKENS 256
 static char **split_on_substring(const char *input, const char *delimiter, int *token_count) {
     char *input_copy;
