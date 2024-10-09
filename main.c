@@ -50,7 +50,7 @@ int execute_command(int argc, char **argv){
     int bytes_read;
     while ((bytes_read = read(pipefd[0], buffer, sizeof(buffer) - 1)) > 0) {
         buffer[bytes_read] = '\0';  // Null-terminate the string
-        // printf("BUFFER:\n%s\n", buffer);  // Print the captured output
+        printf("BUFFER:\n%s\n", buffer);  // Print the captured output
     }
     wait(NULL);  // Wait for the child to complete
 
