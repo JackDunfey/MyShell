@@ -12,7 +12,7 @@ bool loop = true;
 // TODO: read from config file ._rc
 
 int execute_command(int argc, char **command){
-    for (int i = 0; i < token_count; i++) {
+    for (int i = 0; i < argc; i++) {
         printf("%d: %s\n", i+1, argv[i]);
     }
     return 0;
@@ -35,12 +35,14 @@ int parse_command(char *command){
 // Start the shell
 int main(int argc, char **argv){
     int opt;
+    int number_of_args;
     char **command = NULL;
     bool do_prompt = false;
     while ((opt = getopt(argc, argv, "i:p:c:")) != -1) {
         switch (opt) {
             case 'c':
                 printf("c flag found: %s, %d\n", optarg, optind);
+                int number_of_args = argc-optind+1
                 *command = optarg;
                 for(int i = optind, j = 1; i < argc; i++, j++){
                     command[j] = arg[i];
@@ -59,7 +61,7 @@ int main(int argc, char **argv){
     }
 
     if (command) {
-        execute_command(command);
+        execute_command(number_of_args, command);
         return 0;
     }
 
