@@ -2,6 +2,9 @@
 #include <stdlib.h>
 #include <stdbool.h>
 #include <unistd.h>
+#include <string.h>
+#include <sys/wait.h>
+
 
 #include "utils.h"
 
@@ -22,7 +25,7 @@ int execute_command(int argc, char **argv){
 
     pid_t pid = fork();
     if (pid < 0){
-        frpintf(stderr, "fork failed\n");
+        fprintf(stderr, "fork failed\n");
         return 1;
     }
 
