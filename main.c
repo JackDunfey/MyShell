@@ -3,6 +3,8 @@
 #include <stdbool.h>
 #include <unistd.h>
 
+#include "utils.h"
+
 #define PROMPT "user@machine:pwd$ "
 
 bool loop = true;
