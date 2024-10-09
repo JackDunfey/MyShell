@@ -38,7 +38,7 @@ int main(int argc, char **argv){
     int number_of_args;
     char **command = NULL;
     bool do_prompt = false;
-    while ((opt = getopt(argc, argv, "i:p:c:")) != -1) {
+    while ((opt = getopt(argc, argv, "ipc:")) != -1) {
         switch (opt) {
             case 'c':
                 printf("c flag found: %s, %d\n", optarg, optind);
@@ -58,6 +58,8 @@ int main(int argc, char **argv){
             case 'p':
                 // keep privilege, implement later
                 fprintf(stderr, "Not yet implemented\n");
+                break;
+            case '?':
                 break;
             default:
                 break;
