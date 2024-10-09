@@ -5,6 +5,8 @@
 
 #include "utils.h"
 
+#define PIPE_SIZE 2024
+
 #define PROMPT "user@machine:pwd$ "
 extern char **environ;
 
