@@ -36,7 +36,7 @@ int main(int argc, char **argv){
 
     while (loop) {
         if (do_prompt)
-            printf(prompt);
+            printf("%s", prompt);
         
         char command_buffer[256];
         if(fgets(command_buffer, sizeof(command_buffer), stdin)) {
