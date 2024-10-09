@@ -53,7 +53,7 @@ int main(int argc, char **argv){
                     printf("DDS: %d, %d, %s\n", i, j, argv[i]);
                     command[j] = argv[i];
                 }
-                command[number_of_args++] = NULL;
+                command[number_of_args] = NULL;
                 break;
             case 'i':
                 do_prompt = true;
