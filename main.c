@@ -43,8 +43,10 @@ int main(int argc, char **argv){
             case 'c':
                 printf("c flag found: %s, %d\n", optarg, optind);
                 int number_of_args = argc-optind+1;
+                command = calloc(number_of_args, sizeof(char *));
                 *command = optarg;
                 for(int i = optind, j = 1; i < argc; i++, j++){
+                    // printf("%d, %d, %s", i, j, argv[i]);
                     command[j] = argv[i];
                 }
                 break;
