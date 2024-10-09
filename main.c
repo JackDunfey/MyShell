@@ -42,8 +42,11 @@ int main(int argc, char **argv){
         
         char command_buffer[256];
         if(fgets(command_buffer, sizeof(command_buffer), stdin)) {
-            
-            strlen
+            if(trim_newline(command_buffer)){
+                printf("%s\n", command_buffer);
+            } else {
+                fprintf(stderr, "Bad trim\n");
+            }
         }
     }
 }
